@@ -10,3 +10,4 @@ jobs:
         with:
           pattern: "WIP"
           label: "PR:draft"
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
