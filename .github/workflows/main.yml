@@ -8,6 +8,6 @@ jobs:
       - name: Test TDAK title
         uses: TDAK1509/set-label-based-on-pr-title@master
         with:
-          pattern: "WIP"
+          pattern: /WIP/
           label: "PR:draft"
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
