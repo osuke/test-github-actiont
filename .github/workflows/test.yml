@@ -13,8 +13,8 @@ jobs:
         uses: kentaro-m/auto-assign-action@v1.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Add labels based on PR title hihi
-        uses: TDAK1509/set-label-based-on-pr-title@master
+      - name: Add labels based on PR title
+        uses: TDAK1509/set-label-based-on-pr-title@v1
         with:
           words: WIP;UnitTest;E2E
           labels: PR:draft;PR:unittest;PR:e2e
