@@ -1,19 +1,19 @@
-# name: Auto filling pull request
-# on:
-#   pull_request:
-#     types: [opened]
+name: Auto filling pull request
+on: [pull_request]
 
-# jobs:
-#   auto-filling-pull-request:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Test
-#         run: echo "${github}"
-# - name: Set assignee
-#   uses: kentaro-m/auto-assign-action@v1.1.0
-#   with:
-#     repo-token: "${{ secrets.GITHUB_TOKEN }}"
-# - name: Set PR label
-#   uses: TimonVS/pr-labeler-action@v3
-#   env:
-#     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  auto-filling-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set assignee
+        uses: kentaro-m/auto-assign-action@v1.1.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Add label PR:draft if WIP
+        uses: TDAK1509/set-label-based-on-pr-title@master
+        with:
+          words: WIP;UnitTest;E2E
+          labels: PR:draft;PR:unittest;PR:e2e
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
