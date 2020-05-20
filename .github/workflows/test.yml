@@ -1,5 +1,7 @@
 name: Auto filling pull request
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened]
 
 jobs:
   auto-filling-pull-request:
